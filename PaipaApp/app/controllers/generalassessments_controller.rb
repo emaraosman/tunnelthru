@@ -1,19 +1,19 @@
-class GeneralassessmentsController < ApplicationController
-  before_action :require_login #, except: [:index, :show]
+class GeneralassessmentsController < ApiController
+  before_action :require_login #, except: [:index, :show] UNCOMMENT TO TEST/SHOW ALL USERS
 
   def index
-    generalassessments = GeneralAssessments.all
+    generalassessments = GeneralAssessment.all
     render json: { generalassessments: generalassessments }
   end
 
   def show
-    generalassessments = GeneralAssessments.find(params[:id])
+    generalassessments = GeneralAssessment.find(params[:id])
     generalassessments_user = generalassessments.user
     render json: { generalassessments: generalassessments, username: generalassessments_user.username }
   end
 
   def create
-    generalassessments = GeneralAssessments.new(generalassessments_params)
+    generalassessments = GeneralAssessment.new(generalassessments_params)
     generalassessments.user = current_user
 
     if generalassessments.save

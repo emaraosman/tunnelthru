@@ -1,5 +1,4 @@
 class UsersController < ApiController
-  has_many :general_assessments #building relation with general_assessments table
   before_action :require_login, except: [:create]
 
   def create

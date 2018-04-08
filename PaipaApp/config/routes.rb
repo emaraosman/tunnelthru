@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   delete "/logout"      => "sessions#destroy"
   get "/profile"        => "users#profile"
   resources :users
+  # resources :generalassessments UNCOMMENT TO TEST/SHOW ALL USERS
 
 end
