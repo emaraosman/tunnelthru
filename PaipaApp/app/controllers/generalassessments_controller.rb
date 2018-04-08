@@ -1,5 +1,5 @@
 class GeneralassessmentsController < ApplicationController
-  before_action :require_login, except: [:index, :show]
+  before_action :require_login #, except: [:index, :show]
 
   def index
     generalassessments = GeneralAssessments.all
