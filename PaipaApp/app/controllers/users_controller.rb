@@ -9,7 +9,11 @@ class UsersController < ApiController
 
   def profile
     user = User.find_by_auth_token!(request.headers[:token])
-    render json: { user: { username: user.username, email: user.email, name: user.name } }
+    user_generalassessments = GeneralAssessment.where(user_id: user.id)
+    render json: {
+      user: { username: user.username, email: user.email, name: user.name },
+      generalassessments: user_generalassessments,
+    }
   end
 
   private
