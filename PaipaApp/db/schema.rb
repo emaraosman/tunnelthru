@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406204829) do
+ActiveRecord::Schema.define(version: 20180408030601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "general_assessments", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "ethnicity"
+    t.integer "weight"
+    t.integer "height"
+    t.boolean "arthritis"
+    t.boolean "hypertension"
+    t.boolean "cholesterol"
+    t.boolean "chd"
+    t.boolean "diabetes"
+    t.boolean "copd"
+    t.boolean "alzheimers"
+    t.boolean "familyarthritis"
+    t.boolean "familyhypertension"
+    t.boolean "familycholesterol"
+    t.boolean "familychd"
+    t.boolean "familydiabetes"
+    t.boolean "familycopd"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_general_assessments_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
