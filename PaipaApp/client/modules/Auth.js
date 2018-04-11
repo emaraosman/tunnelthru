@@ -1,19 +1,22 @@
+import React, {Component} from 'react';
+import { AsyncStorage } from 'react-native';
+
 class Auth {
   // thank you to Vlad and his awesome auth skills --> https://vladimirponomarev.com/blog/authentication-in-react-apps-jwt
   static authenticateToken(token) {
-    sessionStorage.setItem('token', token);
+    AsyncStorage.setItem('token', token);
   }
 
   static isUserAuthenticated() {
-    return sessionStorage.getItem('token') !== null;
+    return AsyncStorage.getItem('token') !== null;
   }
 
   static deauthenticateUser() {
-    sessionStorage.removeItem('token');
+    AsyncStorage.removeItem('token');
   }
 
   static getToken() {
-    return sessionStorage.getItem('token');
+    return AsyncStorage.getItem('token');
   }
 
 }
