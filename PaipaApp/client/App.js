@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import { AsyncStorage, StyleSheet, Text, View } from 'react-native';
-import axios from 'axios';
 
 import Auth from './modules/Auth.js';
-
-import SignIn from './components/SignIn'
+import NavBar from './components/NavBar';
+import SignIn from './components/SignIn';
+import MainDisplayController from './components/MainDisplay/MainDisplayController';
 
 
 class App extends Component {
   constructor(){
     super()
     this.state={
-      auth: false,
+      auth: true,
       userApiData: [], // holds user api data
       userApiDataLoaded: null,
       signInUsername: "",
@@ -75,11 +75,11 @@ class App extends Component {
       <View style={styles.container}>
         {this.state.auth ? (
           <View style={styles.container}>
-            <Text>Hello there</Text>
-            <Text>This is the app.js component</Text>
-            <Text>Here we will render the MainDisplay component and NavBar</Text>
+            <NavBar />
+            <MainDisplayController />
           </View>
         ):(
+          // If you are not signed in the below will render
           <View style={styles.container}>
             <SignIn
               handleUsernameInputChange={this.handleUsernameInputChange}
@@ -102,7 +102,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 30,
+    paddingBottom: 20,
   },
 });
 
-export default App
+export default App;

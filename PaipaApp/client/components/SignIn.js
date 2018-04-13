@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, AppRegistry, Text, TextInput, View, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 
 // import 'src/modules/Auth.js' //BEWARE OF THIS LINE MAKE SURE IT IMPORTS CORRECTLY
 
@@ -15,10 +15,10 @@ const SignIn = (props) =>{
         <Text>Welcome to OnTrack: {props.signInPassword}</Text>
 
 
-          <TextInput style={styles.textInput} type="text" name="signInUsername" value={props.signInUsername}
+          <TextInput style={styles.textInput} type="text" autoCapitalize = 'none' name="signInUsername" value={props.signInUsername}
             onChangeText={(event)=>{props.handleUsernameInputChange(event)}} placeholder="Username"
           />
-          <TextInput style={styles.textInput} type="text" secureTextEntry={true} name="signInPassword" value={props.signInPassword}
+          <TextInput style={styles.textInput} type="text" autoCapitalize = 'none' secureTextEntry={true} name="signInPassword" value={props.signInPassword}
             onChangeText={(event)=>{props.handlePasswordInputChange(event)}} placeholder="Password"
           />
           <Button onPress={()=>props.handleLogin()} title="Submit" />
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SignIn
+export default SignIn;
