@@ -1,7 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GETTING THE APPLICATION RUNNING on IOS Simulator:
+
+Before doing this make sure to have xcode installed and fully updated.
+
+Clone it, bundle install it, then run 'rails db:create'/ 'rails db:migrate'. Then you can run 'rails server'. Now that rails server is running, open new terminal and head over to client folder, run 'yarn install', then 'react-native run-ios'.
+
+!You must have xcode installed and fully updated for the simulator to run the app!
 
 Things you may want to cover:
 
