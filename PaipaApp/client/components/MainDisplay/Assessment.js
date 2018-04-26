@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import { AsyncStorage, StyleSheet, Text, View } from 'react-native';
 
 
-
 class Assessment extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
 
     this.state={
 
@@ -17,6 +16,7 @@ class Assessment extends Component{
     return (
       <View>
         <Text>Assessment goes here</Text>
+        <Text>{this.props.generalAssessment[0].question}</Text>
       </View>
     )
   }//end of render

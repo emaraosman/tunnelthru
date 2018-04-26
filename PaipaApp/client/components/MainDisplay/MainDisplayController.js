@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { AsyncStorage, StyleSheet, Text, View, Button } from 'react-native';
 
+import generalAssessmentQuestions from '../../modules/generalAssessmentQuestions.js'
 import Assessment from './Assessment'
 
 class MainDisplayController extends Component {
@@ -8,7 +9,7 @@ class MainDisplayController extends Component {
     super(props)
 
     this.state={
-
+      generalAssessment: generalAssessmentQuestions,
     }
 
   }
@@ -17,7 +18,7 @@ class MainDisplayController extends Component {
     return(
       <View style={styles.container}>
         <Text>This is the MainDisplayController Component</Text>
-        <Assessment />
+        <Assessment generalAssessment={this.state.generalAssessment} />
         <Text>hello</Text>
       </View>
     )
