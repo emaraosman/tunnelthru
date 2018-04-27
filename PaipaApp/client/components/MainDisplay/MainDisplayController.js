@@ -1,25 +1,32 @@
 import React, {Component} from 'react';
 import { AsyncStorage, StyleSheet, Text, View, Button } from 'react-native';
 
-import generalAssessmentQuestions from '../../modules/generalAssessmentQuestions.js'
-import Assessment from './Assessment'
+import Assessment from './Assessment';
+import Question from './Question';
+
 
 class MainDisplayController extends Component {
   constructor(props){
     super(props)
 
     this.state={
-      generalAssessment: generalAssessmentQuestions,
+      
     }
 
   }
+
+  // |||||| USE THIS FUNCTION TO HANDLE currentAssessment STATE ||||||:
+  // assessmentSelector(){
+  //   this.setState({
+  //     currentAssessment: selectedAssessment,
+  //   })
+  // }
 
   render(){
     return(
       <View style={styles.container}>
         <Text>This is the MainDisplayController Component</Text>
-        <Assessment generalAssessment={this.state.generalAssessment} />
-        <Text>hello</Text>
+        <Assessment  />
       </View>
     )
   }//end of render
@@ -28,7 +35,7 @@ class MainDisplayController extends Component {
   const styles = StyleSheet.create({
     container: {
       flex: 8,
-      backgroundColor: '#108241',
+      backgroundColor: '#009991',
       alignItems: 'center',
       justifyContent: 'center',
     },
