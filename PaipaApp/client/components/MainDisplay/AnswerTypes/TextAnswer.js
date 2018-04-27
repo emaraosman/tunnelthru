@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { AsyncStorage, StyleSheet, Text, View } from 'react-native';
 
-const BooleanAnswer = (props) =>{
+const TextAnswer = (props) =>{
 
   return(
     <View style={styles.container}>
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BooleanAnswer;
+export default TextAnswer;
