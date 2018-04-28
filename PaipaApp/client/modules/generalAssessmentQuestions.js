@@ -10,7 +10,7 @@ var generalAssessmentQuestions = [
       type: "text"
   },
   {
-      question: "Enter your birthdate:",
+      question: "How old are you?",
       type: "slider",
   },
   {

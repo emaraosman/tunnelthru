@@ -51,30 +51,38 @@ class Assessment extends Component{
 
   render(){
     return (
-      <View style={styles.container}>
+      <View>
+      {this.state.questionCount<this.state.currentAssessment.length-1 ? (
 
-        <PreviousQuestion
-          currentAssessment={this.state.currentAssessment}
-          questionCount={this.state.questionCount}
-          prevQuestion={this.prevQuestion}
-        />
+        <View style={styles.container}>
 
-        <Question
-          currentAssessment={this.state.currentAssessment}
-          questionCount={this.state.questionCount}
-        />
+          <PreviousQuestion
+            currentAssessment={this.state.currentAssessment}
+            questionCount={this.state.questionCount}
+            prevQuestion={this.prevQuestion}
+            loggedAnswers={this.state.loggedAnswers}
+          />
 
-        <Answers
-          currentAssessment={this.state.currentAssessment}
-          questionCount={this.state.questionCount}
-          nextQuestion={this.nextQuestion}
-          logAnswer={this.logAnswer}
-        />
-        <Text>{this.state.loggedAnswers}</Text>
+          <Question
+            currentAssessment={this.state.currentAssessment}
+            questionCount={this.state.questionCount}
+          />
 
+          <Answers
+            currentAssessment={this.state.currentAssessment}
+            questionCount={this.state.questionCount}
+            nextQuestion={this.nextQuestion}
+            logAnswer={this.logAnswer}
+          />
+          <Text>{this.state.loggedAnswers}</Text>
 
+        </View>
+
+      ):(
+        <Text>You are done with the assessment</Text>
+      )}
       </View>
-    )
+    )//end of return
   }//end of render
 }//end of Component
 
