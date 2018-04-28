@@ -15,9 +15,39 @@ class Assessment extends Component{
     this.state={
       questionCount: 0,
       currentAssessment: generalAssessmentQuestions,
+      loggedAnswers:[],
     }
 
+    this.nextQuestion = this.nextQuestion.bind(this);
+    this.prevQuestion = this.prevQuestion.bind(this);
+    this.logAnswer = this.logAnswer.bind(this);
   }
+
+  prevQuestion(){
+    let lastQ = this.state.questionCount - 1;
+    this.setState({
+      questionCount: lastQ,
+    })
+  }
+
+  nextQuestion(){
+    let nextQ = this.state.questionCount + 1;
+    this.setState({
+      questionCount: nextQ,
+    })
+  }
+
+  logAnswer(event){
+    let updatedState = this.state.loggedAnswers;
+    updatedState[this.state.questionCount] = event;
+    this.setState({
+      loggedAnswers: updatedState,
+    })
+    console.log(this.state.loggedAnswers)
+    this.nextQuestion();
+  }
+
+
 
   render(){
     return (
@@ -26,6 +56,7 @@ class Assessment extends Component{
         <PreviousQuestion
           currentAssessment={this.state.currentAssessment}
           questionCount={this.state.questionCount}
+          prevQuestion={this.prevQuestion}
         />
 
         <Question
@@ -36,9 +67,10 @@ class Assessment extends Component{
         <Answers
           currentAssessment={this.state.currentAssessment}
           questionCount={this.state.questionCount}
+          nextQuestion={this.nextQuestion}
+          logAnswer={this.logAnswer}
         />
-
-
+        <Text>{this.state.loggedAnswers}</Text>
 
 
       </View>

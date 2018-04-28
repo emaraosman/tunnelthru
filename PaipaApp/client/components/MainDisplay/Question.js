@@ -14,7 +14,7 @@ const Question = (props) =>{
 // SYTLES:
 const styles = StyleSheet.create({
   container: {
-    flex: 3,
+    flex: 2,
     backgroundColor: '#108241',
     alignItems: 'center',
     justifyContent: 'center',

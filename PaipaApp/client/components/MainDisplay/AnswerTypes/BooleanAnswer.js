@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import { AsyncStorage, StyleSheet, Text, View } from 'react-native';
+import { AsyncStorage, StyleSheet, Text, View, Button } from 'react-native';
 
 const BooleanAnswer = (props) =>{
 
   return(
     <View style={styles.container}>
-      <Text>{props.currentAssessment[props.questionCount].type}</Text>
+      <Button title={"Yes"} onPress={()=>props.logAnswer(true)} />
+      <Button title={"No"} onPress={()=>props.logAnswer(false)} />
+
     </View>
 
   )

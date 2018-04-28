@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
-import { AsyncStorage, StyleSheet, Text, View } from 'react-native';
+import { AsyncStorage, StyleSheet, Text, View, Button } from 'react-native';
 
 const RadioAnswer = (props) =>{
 
   return(
     <View style={styles.container}>
-      <Text>{props.currentAssessment[props.questionCount].type}</Text>
+      {props.currentAssessment[props.questionCount].answers.map((answer, index)=>{
+        return (
+          <Button key={index} title={`${answer}`} onPress={()=>props.logAnswer(answer)} />
+        )
+      })}
     </View>
 
   )
@@ -15,7 +19,7 @@ const RadioAnswer = (props) =>{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#108241',
+    backgroundColor: '#FFF',
     alignItems: 'center',
     justifyContent: 'center',
   },

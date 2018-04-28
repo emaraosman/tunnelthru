@@ -7,10 +7,11 @@ import SliderAnswer from './AnswerTypes/SliderAnswer';
 import RadioAnswer from './AnswerTypes/RadioAnswer';
 
 
-
-
-
 const Answers = (props)=>{
+
+
+// answerChoice will be returned/rendered, and this switch statement will
+// decide which answerChoice component gets shown.
 
   let answerChoice = null
   switch(props.currentAssessment[props.questionCount].type){
@@ -19,6 +20,7 @@ const Answers = (props)=>{
         <BooleanAnswer
           currentAssessment={props.currentAssessment}
           questionCount={props.questionCount}
+          logAnswer={props.logAnswer}
         />
       )
       break;
@@ -27,6 +29,7 @@ const Answers = (props)=>{
         <TextAnswer
           currentAssessment={props.currentAssessment}
           questionCount={props.questionCount}
+          logAnswer={props.logAnswer}
         />
       )
       break;
@@ -35,6 +38,7 @@ const Answers = (props)=>{
         <SliderAnswer
           currentAssessment={props.currentAssessment}
           questionCount={props.questionCount}
+          logAnswer={props.logAnswer}
         />
       )
       break;
@@ -43,10 +47,13 @@ const Answers = (props)=>{
         <RadioAnswer
           currentAssessment={props.currentAssessment}
           questionCount={props.questionCount}
+          logAnswer={props.logAnswer}
         />
       )
 
   }
+
+
 
   return(
     <View style={styles.container}>

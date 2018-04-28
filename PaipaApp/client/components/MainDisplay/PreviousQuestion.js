@@ -10,7 +10,7 @@ const PreviousQuestion = (props) =>{
     {lastQuestion < 0 ? (
       <Text>No previous question</Text>
     ):(
-      <Text>{props.currentAssessment[lastQuestion].question}</Text>
+      <Text onPress={()=>props.prevQuestion()} >{props.currentAssessment[lastQuestion].question}</Text>
     )}
 </View>
 )

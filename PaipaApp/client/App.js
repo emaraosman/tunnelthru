@@ -37,7 +37,7 @@ class App extends Component {
   }
 
 
-  handleLogin(event) {
+  handleLogin(){
     fetch('http://localhost:3000/login', {
       method: 'POST',
       body: JSON.stringify({
