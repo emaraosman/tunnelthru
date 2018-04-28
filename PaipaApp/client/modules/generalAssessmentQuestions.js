@@ -16,6 +16,7 @@ var generalAssessmentQuestions = [
   {
       question: "What is your ethnicity?",
       type: "radio",
+      answers: ["Caucasian", "African American", "Hispanic", "Asian", "Native American"]
   },
   {
       question: "What is your weight?",
