@@ -6,7 +6,8 @@ const NavBar = (props) =>{
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>ONTRACK</Text>
-      <Button onPress={console.log("hello")} title="Menu"/>
+      <Button onPress={console.log("menu button")} title="Menu"/>
+      <Button onPress={()=>props.handleLogout()} title="Logout"/>
     </View>
   )
 }

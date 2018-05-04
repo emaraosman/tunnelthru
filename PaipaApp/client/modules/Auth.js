@@ -1,31 +1,90 @@
-import React, {Component} from 'react';
 import { AsyncStorage } from 'react-native';
 
-class Auth {
-  // thank you to Vlad and his awesome auth skills --> https://vladimirponomarev.com/blog/authentication-in-react-apps-jwt
-  static authenticateToken(token) {
-    AsyncStorage.setItem('token', token);
-  }
 
-  static isUserAuthenticated() {
-    return AsyncStorage.getItem('token') !== null;
-  }
+export default {
+  async authenticateToken(key, value) {
+      try {
+        console.log("AUTH FILE WORKING")
+          return await AsyncStorage.setItem(key, JSON.stringify(value));
+      } catch (error) {
+          // console.error('AsyncStorage#setItem error: ' + error.message);
+      }
+  },
 
-  static deauthenticateUser() {
-    AsyncStorage.removeItem('token');
-  }
+  async getToken(key) {
+      return await AsyncStorage.getItem(key)
+          .then((result) => {
+              if (result) {
+                  try {
+                    console.log("AUTH FILE WORKING")
 
-  static getToken() {
-    return AsyncStorage.getItem('token');
-  }
+                      result = JSON.parse(result);
+                      console.log("getToken: " + result)
+                  } catch (e) {
+                      console.error('AsyncStorage#getItem error deserializing JSON for key: ' + key, e.message);
+                  }
+              }
+              return result;
+          });
+  },
 
+  async isUserAuthenticated(key) {
+      await AsyncStorage.getItem(key)
+          .then((result) => {
+              if (result) {
+                  try {
+                    console.log("AUTH FILE WORKING")
+
+                      var result = JSON.parse(result);
+                      result = result!==null
+                      console.log("userIsAuthenticated function raw result: " + result)
+                  } catch (e) {
+                      console.error('AsyncStorage#getItem error deserializing JSON for key: ' + key, e.message);
+                  }
+
+              }
+              // result = (result !== null);
+
+              console.log("isUserAuthenticated: " + result)
+              console.log("after isUserAuthenticated authState:" + this.state.auth)
+
+
+              console.log("after isUserAuthenticated authState:" + this.state.auth + result)
+              // return result;
+          })
+          this.setState({
+            auth: result,
+            signInComplete: true,
+          })
+          console.log("signInComplete: " + this.state.signInComplete)
+          return (result !== null)
+
+  },
+
+  async deauthenticateUser(key) {
+      return await AsyncStorage.removeItem(key);
+  }
+// async setItem(key, value) {
+//     try {
+//         return await AsyncStorage.setItem(key, JSON.stringify(value));
+//     } catch (error) {
+//         // console.error('AsyncStorage#setItem error: ' + error.message);
+//     }
+// },
+// async getItem(key) {
+//     return await AsyncStorage.getItem(key)
+//         .then((result) => {
+//             if (result) {
+//                 try {
+//                     result = JSON.parse(result);
+//                 } catch (e) {
+//                     // console.error('AsyncStorage#getItem error deserializing JSON for key: ' + key, e.message);
+//                 }
+//             }
+//             return result;
+//         });
+// },
+// async removeItem(key) {
+//     return await AsyncStorage.removeItem(key);
+// }
 }
-
-export default Auth;
-
-// Legend:
-// authenticateToken -- sets the token it's passed in session storage.
-// isUserAuthenticated -- returns a boolean, true or false, that represents whether or not there is currently a token stored in storage.
-// deauthenticateUser -- removes the token from the session storage, essentially logging out the user.
-// getToken -- gets the token from storage so we can use it.
-// We write these in a module so we can use that module in multiple places, if necessary.

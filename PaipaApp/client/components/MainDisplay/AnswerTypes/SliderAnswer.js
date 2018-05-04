@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { AsyncStorage, StyleSheet, Text, Button, View, Slider } from 'react-native';
+import { AsyncStorage, StyleSheet, Text, Button, View, Slider, Dimensions } from 'react-native';
 
 class SliderAnswer extends Component{
   constructor(props){
@@ -36,11 +36,16 @@ class SliderAnswer extends Component{
 }
 
 // SYTLES:
+
+var width = Dimensions.get('window').width; //full width
+var height = Dimensions.get('window').height; //full height
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
+    width: width,
   },
   text: {
     fontSize: 50,

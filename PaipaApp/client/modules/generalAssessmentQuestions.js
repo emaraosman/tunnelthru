@@ -23,6 +23,10 @@ var generalAssessmentQuestions = [
       type: "slider",
   },
   {
+      question: "What is your height(cm)?",
+      type: "slider",
+  },
+  {
       question: "Do you have arthritis?",
       type: "boolean"
   },
@@ -71,10 +75,9 @@ var generalAssessmentQuestions = [
       type: "boolean"
   },
   {
-      question: "Do you have a family member with Alzheimers?",
+      question: "Do you have a family member with COPD?",
       type: "boolean"
   },
-
 ];
 
 export default generalAssessmentQuestions;

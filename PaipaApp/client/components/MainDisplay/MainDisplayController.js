@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { AsyncStorage, StyleSheet, Text, View, Button } from 'react-native';
+import { AsyncStorage, StyleSheet, Text, View, Button, Dimensions } from 'react-native';
 
 import Assessment from './Assessment';
 import Question from './Question';
@@ -10,7 +10,7 @@ class MainDisplayController extends Component {
     super(props)
 
     this.state={
-      
+
     }
 
   }
@@ -25,19 +25,25 @@ class MainDisplayController extends Component {
   render(){
     return(
       <View style={styles.container}>
-        <Text>This is the MainDisplayController Component</Text>
         <Assessment  />
       </View>
     )
   }//end of render
 }//end of component
 
+// STYLES:
+
+var width = Dimensions.get('window').width; //full width
+var height = Dimensions.get('window').height; //full height
+
   const styles = StyleSheet.create({
     container: {
       flex: 8,
-      backgroundColor: '#009991',
+      backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+      height: height,
+      width: width,
     },
   });
 

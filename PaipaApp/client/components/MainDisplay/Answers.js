@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { AsyncStorage, StyleSheet, Text, View, Button } from 'react-native';
+import { AsyncStorage, StyleSheet, Text, View, Button, Dimensions } from 'react-native';
 
 import BooleanAnswer from './AnswerTypes/BooleanAnswer';
 import TextAnswer from './AnswerTypes/TextAnswer';
@@ -57,23 +57,26 @@ const Answers = (props)=>{
 
   return(
     <View style={styles.container}>
-      <Text>Question Answers here</Text>
 
       {answerChoice}
     </View>
-  )
+  )// end of return
+}//end of component
 
-
-}
 
 // STYLES:
+
+var width = Dimensions.get('window').width; //full width
+var height = Dimensions.get('window').height; //full height
+
 const styles = StyleSheet.create({
   container: {
     flex: 3,
-    backgroundColor: '#009291',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    paddingBottom: 50,
+    paddingBottom: 0,
+    width: width,
   },
 });
 

@@ -2,8 +2,8 @@ class User < ApplicationRecord
   validates_uniqueness_of :username
   has_secure_password
   has_secure_token :auth_token
-  has_many :general_assessments #building relation with general_assessments table
 
+  has_many :general_assessments #building relation with general_assessments table
 
   def invalidate_token
     self.update_columns(auth_token: nil)

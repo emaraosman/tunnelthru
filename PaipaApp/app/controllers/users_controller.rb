@@ -2,6 +2,7 @@ class UsersController < ApiController
   before_action :require_login, except: [:create]
 
   def create
+    puts user_params
     user = User.create!(user_params)
     render json: { token: user.auth_token }
   end
