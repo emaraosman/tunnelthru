@@ -7,6 +7,7 @@ import SignIn from './components/SignIn';
 import MainDisplayController from './components/MainDisplay/MainDisplayController';
 
 
+
 class App extends Component {
   constructor(){
     super()
@@ -169,14 +170,10 @@ handlePasswordInputChange(event){
         {this.state.auth ? (
 
           <View style={styles.container}>
-
-              <View>
             <NavBar
               handleLogout={this.handleLogout}
             />
             <MainDisplayController />
-            </View>
-
           </View>
         ):(
           // If you are not signed in the below will render
@@ -197,6 +194,7 @@ handlePasswordInputChange(event){
 }
 
 // STYLES:
+
 
 var width = Dimensions.get('window').width; //full width
 var height = Dimensions.get('window').height; //full height

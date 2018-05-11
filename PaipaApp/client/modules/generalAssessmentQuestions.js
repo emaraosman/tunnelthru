@@ -11,7 +11,7 @@ var generalAssessmentQuestions = [
   },
   {
       question: "How old are you?",
-      type: "slider",
+      type: "numeric"
   },
   {
       question: "What is your ethnicity?",
@@ -20,11 +20,11 @@ var generalAssessmentQuestions = [
   },
   {
       question: "What is your weight?",
-      type: "slider",
+      type: "slider"
   },
   {
       question: "What is your height(cm)?",
-      type: "slider",
+      type: "numeric"
   },
   {
       question: "Do you have arthritis?",

@@ -5,7 +5,7 @@ import BooleanAnswer from './AnswerTypes/BooleanAnswer';
 import TextAnswer from './AnswerTypes/TextAnswer';
 import SliderAnswer from './AnswerTypes/SliderAnswer';
 import RadioAnswer from './AnswerTypes/RadioAnswer';
-
+import NumericAnswer from './AnswerTypes/NumericAnswer';
 
 const Answers = (props)=>{
 
@@ -50,6 +50,16 @@ const Answers = (props)=>{
           logAnswer={props.logAnswer}
         />
       )
+      break;
+    case "numeric":
+      answerChoice = (
+        <NumericAnswer
+          currentAssessment={props.currentAssessment}
+          quesiontCount={props.questionCount}
+          logAnswer={props.logAnswer}
+        />
+      )
+      break;
 
   }
 
