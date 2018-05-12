@@ -14,7 +14,7 @@ class Assessment extends Component{
     super(props)
 
     this.state={
-      questionCount: 0,
+      questionCount: 2,
       currentAssessment: generalAssessmentQuestions,
       loggedAnswers:[],
     }

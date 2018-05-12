@@ -5,7 +5,7 @@ const Question = (props) =>{
 
   return(
     <View style={styles.container}>
-      <Text>{props.currentAssessment[props.questionCount].question}</Text>
+      <Text style={styles.question}>{props.currentAssessment[props.questionCount].question}</Text>
     </View>
 
   )//end of return
@@ -18,12 +18,20 @@ var height = Dimensions.get('window').height; //full height
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
-    backgroundColor: '#108241',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
+    backgroundColor: 'rgb(235,255,255)',
+    justifyContent: 'flex-end',
     width: width,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
+  question: {
+    fontSize: 23,
+    color: 'rgb(50,50,50)',
+    alignSelf: 'flex-start',
+    textAlign: 'left',
+  },
+
 });
 
 export default Question;
